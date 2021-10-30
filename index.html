@@ -9,38 +9,68 @@
 <body>
   <main class="main">
     <div class="main-container">
-      <form class="search-form">
-          <label for="search-input" class="search-form__label">
-            Enter inventory number, guid or bims id
-          </label>
-          <div class="search-form__wrapper">
-            <input type="text" id="search-input" class="search-form__input">
-            <button name="searchButton" type="submit" class="search-form__button">
-              Search
-            </button>
-          </div>
-      </form>
-      <div class="report-container">
-        <div class="report-options">
-          <img src="" alt="" class="report-container__item-img">
-          <h2 clas="item-name"></h2>
-          <form action="" class="options-form" hidden>
-            <select id="period-selection">
-              <option value="month">1 month</option>
-              <option value="quarter">3 month</option>
-              <option value="half">6 month</option>
-              <option value="nine">9 month</option>
-              <option value="year">12 month</option>
-              </select>
-            <p><input name="report-option" type="radio" value="calibration">Calibraion</p>
-            <p><input name="report-option" type="radio" value="measuring">Measuring</p>
-            <p><input name="report-option" type="radio" value="using" checked>Using</p>
-            <p><input type="submit" value="Generate Report"></p>
-          </form>
+        <label for="search-input" class="search-form__label">
+          Enter inventory number, guid or bims id
+        </label>
+        <div class="search-form__wrapper">
+          <input type="text" name="search-input" id="search-input" class="search-form__input">
+          <button id="search-button" class="search-form__button" onclick="loadItem()">Search</button>
         </div>
-        <div class="report-item-details">
-          <ul class="report-container__device-info">
+      <div class="report-container" style="visibility: hidden;">
+        <div class="report-options">
+          <img src="" alt="Item image" class="report-container__item-img">
+          <h2 id="item-name"></h2>
 
+          <select id="period-selection">
+            <option value="month">1 month</option>
+            <option value="quarter">3 month</option>
+            <option value="half">6 month</option>
+            <option value="nine">9 month</option>
+            <option value="year">12 month</option>
+          </select>
+          <p><input name="report-option" type="radio" value="calibration">Calibraion</p>
+          <p><input name="report-option" type="radio" value="measuring">Measuring</p>
+          <p><input name="report-option" type="radio" value="using" checked>Using</p>
+          <p><button id="search-button" class="search-form__button" onclick="generateReport()">Generate Report</button></p>
+        </div>
+        <div class="report-item-details" style="visibility: hidden;">
+          <ul id="device-info">
+            <li id="att1" class="report-container__device-attribute">
+              <mark>Тип оборудования:</mark>
+            </li>
+            <li id="att2" class="report-container__device-attribute">
+              <mark>Статус:</mark>
+            </li>
+            <li id="att3" class="report-container__device-attribute">
+              <mark>Изготовитель:</mark>
+            </li>
+            <li id="att4" class="report-container__device-attribute">
+              <mark>Модель:</mark>
+            </li>
+            <li id="att5" class="report-container__device-attribute">
+              <mark>Ответственное подразделение (ремонт):</mark>
+            </li>
+            <li id="att6" class="report-container__device-attribute">
+              <mark>Эксплуатирующее подразделение:</mark>
+            </li>
+            <li id="att7" class="report-container__device-attribute">
+              <mark>МОЛ:</mark>
+            </li>
+            <li id="att8" class="report-container__device-attribute">
+              <mark>Территория:</mark>
+            </li>
+            <li id="att9" class="report-container__device-attribute">
+              <mark>Серийный номер:</mark>
+            </li>
+            <li id="att10" class="report-container__device-attribute">
+              <mark>GUID:</mark>
+            </li>
+            <li id="att11" class="report-container__device-attribute">
+              <mark>Bims ID:</mark>
+            </li>
+            <li id="att12" class="report-container__device-attribute">
+              <mark>Tam:</mark>
+            </li>
           </ul>
         </div>
         <table class="report-table" hidden>
@@ -51,10 +81,10 @@
           <th>Offset, mv Norm (&plusmn;0-20)</th>
           <th>User</th>
         </table>
-
-
       </div>
     </div>
   </main>
+  <script src="report.js"></script>
+  <script src="item.js"></script>
 </body>
 </html>
