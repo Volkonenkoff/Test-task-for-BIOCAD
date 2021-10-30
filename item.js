@@ -1,7 +1,7 @@
 function loadItem() {
 
   var item = {
-    itemImage : "/pictures/scale.svg",
+    itemImage : "pictures/scale.svg",
     itemName : "Аналитические весы OHAUS Adventurer АХ324 (B715976163)",
     itemType : "Весы",
     status : "Готов к работе",
