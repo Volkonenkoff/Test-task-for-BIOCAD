@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet" type="text/css">
   <title>Calibration report</title>
 </head>
 <body>
   <main class="main">
     <div class="main-container">
+      <div class="search-form">
         <label for="search-input" class="search-form__label">
           Enter inventory number, guid or bims id
         </label>
@@ -16,11 +18,13 @@
           <input type="text" name="search-input" id="search-input" class="search-form__input">
           <button id="search-button" class="search-form__button" onclick="loadItem()">Search</button>
         </div>
+      </div>
       <div class="report-container" style="visibility: hidden;">
         <div class="report-options">
-          <img src="" alt="Item image" class="report-container__item-img">
-          <h2 id="item-name"></h2>
-
+          <div class="item-preview">
+            <img src="" alt="Item image" class="report-container__item-img">
+            <h2 id="item-name"></h2>
+          </div>
           <select id="period-selection">
             <option value="month">1 month</option>
             <option value="quarter">3 month</option>
@@ -28,10 +32,10 @@
             <option value="nine">9 month</option>
             <option value="year">12 month</option>
           </select>
-          <p><input name="report-option" type="radio" value="calibration">Calibraion</p>
-          <p><input name="report-option" type="radio" value="measuring">Measuring</p>
-          <p><input name="report-option" type="radio" value="using" checked>Using</p>
-          <p><button id="search-button" class="search-form__button" onclick="generateReport()">Generate Report</button></p>
+          <p><input checked class="option-radio" name="report-option" type="radio" value="calibration">Calibraion</p>
+          <p><input class="option-radio" name="report-option" type="radio" value="measuring">Measuring</p>
+          <p><input class="option-radio" name="report-option" type="radio" value="using">Using</p>
+          <p><button id="generate-button" class="options__button" onclick="generateReport()">Generate Report</button></p>
         </div>
         <div class="report-item-details" style="visibility: hidden;">
           <ul id="device-info">
@@ -73,15 +77,25 @@
             </li>
           </ul>
         </div>
-        <table class="report-table" hidden>
-          <h3 id="report-name"></h3>
-          <th>Data</th>
-          <th>Used buffer solutions</th>
-          <th>Slope, % Norm 95-105</th>
-          <th>Offset, mv Norm (&plusmn;0-20)</th>
-          <th>User</th>
+      </div>
+      <div class="result-container" style="visibility: hidden;">
+        <h3 id="report-name"></h3>
+        <table id="report-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Used buffer solutions</th>
+              <th>Slope, % Norm 95-105</th>
+              <th>Offset, mv Norm (&plusmn;0-20)</th>
+              <th>User</th>
+            </tr>
+          </thead>
+          <tbody id="res-data">
+
+          </tbody>
         </table>
       </div>
+
     </div>
   </main>
   <script src="report.js"></script>

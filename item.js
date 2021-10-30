@@ -17,10 +17,17 @@ function loadItem() {
     Tam : "А-001234"
   };
 
-  var value = document.getElementById('search-input').value;
+  var ulReport = document.getElementById("device-info");
+    var atts = Object.values(item);
+    for (let i = 0; i<ulReport.getElementsByTagName("li").length; i++) {
+      document.getElementById("att"+(i+1)).innerHTML=  "<mark>"+document.getElementsByTagName("mark")[i].innerHTML+"</mark>";
+    }
+  var value = document.getElementById("search-input").value;
 
   if (value.localeCompare(item.GUID)==0 || value.localeCompare(item.bimsID)==0 || value.localeCompare(item.Tam)==0  ||value.localeCompare(item.serialNumber)==0) {
     (document.getElementsByClassName("report-container"))[0].style.visibility="visible";
+    (document.getElementsByClassName("report-item-details"))[0].style.visibility="visible";
+
     document.getElementById("item-name").innerHTML=item.itemName;
     (document.getElementsByClassName("report-container__item-img"))[0].src=item.itemImage;
     var ulReport = document.getElementById("device-info");
@@ -31,7 +38,10 @@ function loadItem() {
 
   }
   else {
-    document.getElementById("item-name").innerHTML="Такого оборудования нет";
+    alert("Элемент найден не был");
+    (document.getElementsByClassName("report-container"))[0].style.visibility="hidden";
+    (document.getElementsByClassName("report-item-details"))[0].style.visibility="hidden";
+    (document.getElementsByClassName("result-container"))[0].style.visibility="hidden";
   }
 
 }
