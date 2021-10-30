@@ -30,12 +30,12 @@ function generateReport() {
     tr.appendChild(td);
     td=document.createElement('td');
     let str = tableData.slope[i] + (isSlopePositive(tableData.slope[i])
-    ? "<img src='pictures/positive.svg' alt='res' />" : "<img src='pictures/negative.svg' alt='res' />");
+    ? "<img src='pictures/positive.svg' alt='res' />" : "<img src='pictures/negative.svg' alt='res' />"); 
     td.innerHTML=str;
     tr.appendChild(td);
     td=document.createElement('td');
     str=tableData.offset[i] + (isOffsetPositive(tableData.offset[i])
-    ? "<img src='pictures/positive.svg' alt='res' />" : "<img src='pictures/negative.svg' alt='res' />");
+    ? "<img src='pictures/positive.svg' alt='res' />" : "<img src='pictures/negative.svg' alt='res' />"); 
     td.innerHTML=str;
     tr.appendChild(td);
     td=document.createElement('td');
